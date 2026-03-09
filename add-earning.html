@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Earning - BodaSacco</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-content">
+        <div class="page-header">
+            <button class="back-btn" onclick="history.back()">←</button>
+            <h2>Add Today's Earnings</h2>
+        </div>
+
+        <!-- Quick Amount Buttons -->
+        <div class="quick-amounts">
+            <button class="amount-btn" onclick="setAmount(100)">KES 100</button>
+            <button class="amount-btn" onclick="setAmount(200)">KES 200</button>
+            <button class="amount-btn" onclick="setAmount(300)">KES 300</button>
+            <button class="amount-btn" onclick="setAmount(500)">KES 500</button>
+        </div>
+
+        <!-- Main Form -->
+        <form id="earningForm" onsubmit="saveEarning(event)">
+            <div class="form-group">
+                <label>Trip Fare (KES)</label>
+                <input type="number" id="fare" placeholder="e.g., 250" required step="10" min="20">
+            </div>
+
+            <div class="form-group">
+                <label>From</label>
+                <input type="text" id="fromLocation" placeholder="e.g., Kawangware" required>
+            </div>
+
+            <div class="form-group">
+                <label>To</label>
+                <input type="text" id="toLocation" placeholder="e.g., Town" required>
+            </div>
+
+            <div class="form-group">
+                <label>Payment Method</label>
+                <select id="paymentMethod" onchange="toggleMPESAFields()">
+                    <option value="cash">Cash</option>
+                    <option value="mpesa">M-PESA</option>
+                </select>
+            </div>
+
+            <!-- M-PESA Fields (shown when M-PESA selected) -->
+            <div id="mpesaFields" style="display: none;">
+                <div class="form-group">
+                    <label>M-PESA Code</label>
+                    <input type="text" id="mpesaCode" placeholder="e.g., QW12Y34R5">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="customerPhone" placeholder="07XX XXX XXX">
+                </div>
+            </div>
+
+            <!-- Automatic Savings Calculation -->
+            <div class="savings-preview">
+                <p>Fare: KES <span id="farePreview">0</span></p>
+                <p class="saving-amount">Savings (10%): KES <span id="savingsAmount">0</span></p>
+                <p>You'll receive: KES <span id="netAmount">0</span></p>
+            </div>
+
+            <button type="submit" class="btn-primary btn-large">💾 Save Earning</button>
+        </form>
+
+        <!-- Offline Queue Indicator -->
+        <div id="offlineQueue" class="offline-queue" style="display: none;">
+            <p>📴 You're offline. This will be saved and synced later.</p>
+        </div>
+    </div>
+
+    <script>
+        function setAmount(amount) {
+            document.getElementById('fare').value = amount;
+            updateSavings();
+        }
+
+        function updateSavings() {
+            const fare = parseFloat(document.getElementById('fare').value) || 0;
+            const savings = fare * 0.1; // 10% savings
+            document.getElementById('farePreview').textContent = fare;
+            document.getElementById('savingsAmount').textContent = savings.toFixed(0);
+            document.getElementById('netAmount').textContent = (fare - savings).toFixed(0);
+        }
+
+        document.getElementById('fare').addEventListener('input', updateSavings);
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>

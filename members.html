@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members - BodaSacco</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bottom-nav">
+        <a href="dashboard.html" class="nav-item">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="earnings.html" class="nav-item">
+            <span class="nav-icon">💰</span>
+            <span class="nav-label">Earnings</span>
+        </a>
+        <a href="loans.html" class="nav-item">
+            <span class="nav-icon">💳</span>
+            <span class="nav-label">Loans</span>
+        </a>
+        <a href="members.html" class="nav-item active">
+            <span class="nav-icon">👥</span>
+            <span class="nav-label">Members</span>
+        </a>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h2>👥 SACCO Members</h2>
+            <button class="btn-primary btn-small" onclick="showAddMember()">+ Add Member</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-box">
+            <input type="text" id="memberSearch" placeholder="🔍 Search by name or phone..." onkeyup="searchMembers()">
+        </div>
+
+        <!-- Members List -->
+        <div class="members-list" id="membersList">
+            <!-- Dynamically populated -->
+            <div class="loading">Loading members...</div>
+        </div>
+
+        <!-- Member Stats -->
+        <div class="member-stats">
+            <div class="stat-card small">
+                <span class="stat-label">Total Members</span>
+                <span class="stat-value" id="totalMembers">0</span>
+            </div>
+            <div class="stat-card small">
+                <span class="stat-label">Active Today</span>
+                <span class="stat-value" id="activeToday">0</span>
+            </div>
+            <div class="stat-card small">
+                <span class="stat-label">Total Savings</span>
+                <span class="stat-value" id="totalSavings">KES 0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Member Modal (hidden by default) -->
+    <div id="addMemberModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Add New Member</h3>
+            
+            <form id="addMemberForm" onsubmit="saveMember(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="memberName" placeholder="e.g., Peter Okoth" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="memberPhone" placeholder="07XX XXX XXX" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Bike Registration</label>
+                    <input type="text" id="bikeReg" placeholder="e.g., KMEB 123X">
+                </div>
+                
+                <div class="form-group">
+                    <label>Join Date</label>
+                    <input type="date" id="joinDate" value="<?php echo date('Y-m-d'); ?>">
+                </div>
+                
+                <button type="submit" class="btn-primary">Save Member</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/members.js"></script>
+</body>
+</html>

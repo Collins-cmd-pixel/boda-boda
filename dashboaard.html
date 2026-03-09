@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BodaSacco - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+        <a href="dashboard.html" class="nav-item active">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="earnings.html" class="nav-item">
+            <span class="nav-icon">💰</span>
+            <span class="nav-label">Earnings</span>
+        </a>
+        <a href="loans.html" class="nav-item">
+            <span class="nav-icon">💳</span>
+            <span class="nav-label">Loans</span>
+        </a>
+        <a href="members.html" class="nav-item">
+            <span class="nav-icon">👥</span>
+            <span class="nav-label">Members</span>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div>
+                <h1>Hello, <span id="userName">John</span>! 👋</h1>
+                <p class="sacco-name" id="saccoDisplay">Kawangware Boda</p>
+            </div>
+            <div class="date-badge" id="currentDate"></div>
+        </div>
+
+        <!-- Quick Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">Today's Earnings</span>
+                <span class="stat-value" id="todayEarnings">KES 1,450</span>
+                <span class="stat-trend positive">+12% vs yesterday</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Savings (10%)</span>
+                <span class="stat-value" id="savings">KES 145</span>
+                <span class="stat-trend">This week: KES 870</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Loan Balance</span>
+                <span class="stat-value" id="loanBalance">KES 8,200</span>
+                <span class="stat-trend negative">Outstanding</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Trips Today</span>
+                <span class="stat-value" id="tripsToday">17</span>
+                <span class="stat-trend positive">+5 trips</span>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="action-grid">
+                <button class="action-btn" onclick="location.href='add-earning.html'">
+                    <span class="action-icon">➕</span>
+                    <span>Add Earning</span>
+                </button>
+                <button class="action-btn" onclick="location.href='loans.html#apply'">
+                    <span class="action-icon">💵</span>
+                    <span>Apply Loan</span>
+                </button>
+                <button class="action-btn" onclick="recordMPESA()">
+                    <span class="action-icon">📱</span>
+                    <span>Record M-PESA</span>
+                </button>
+                <button class="action-btn" onclick="shareWhatsApp()">
+                    <span class="action-icon">📤</span>
+                    <span>Share Report</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="recent-activity">
+            <h3>Recent Earnings</h3>
+            <div class="activity-list" id="recentEarnings">
+                <!-- Populated by JavaScript -->
+                <div class="activity-item">
+                    <div class="activity-icon">🛵</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Trip to Town</div>
+                        <div class="activity-time">10:30 AM</div>
+                    </div>
+                    <div class="activity-amount">KES 250</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">🛵</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Kawangware - Stage</div>
+                        <div class="activity-time">9:15 AM</div>
+                    </div>
+                    <div class="activity-amount">KES 150</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add to Home Screen Prompt (for PWA) -->
+    <div id="a2hs-prompt" class="a2hs-prompt" style="display: none;">
+        <p>📱 Install BodaSacco for faster access</p>
+        <button onclick="installPWA()" class="btn-small">Install</button>
+        <button onclick="closePrompt()" class="btn-small btn-outline">Later</button>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+/* Mobile-First CSS for BodaSacco Manager */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fb;
+    color: #2c3e50;
+    padding-bottom: 70px; /* Space for bottom nav */
+}
+
+/* Container */
+.container {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Typography - Large for easy reading */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* Buttons - Big and tappable */
+.btn-primary {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3);
+    transition: transform 0.1s ease;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-small {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    width: auto;
+}
+
+.btn-outline {
+    background-color: white;
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+    box-shadow: none;
+}
+
+/* Form Elements - Mobile optimized */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #e0e7ed;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: white;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form-group input:focus {
+    border-color: #2ecc71;
+    outline: none;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-width: 500px;
+    margin: 0 auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #95a5a6;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    border-radius: 30px;
+    transition: all 0.2s;
+}
+
+.nav-item.active {
+    color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 18px;
+    border-radius: 16px;
+    color: white;
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+}
+
+.stat-card:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.stat-card:nth-child(3) {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.stat-card:nth-child(4) {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-trend {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.stat-trend.positive {
+    color: #2ecc71;
+}
+
+.stat-trend.negative {
+    color: #e74c3c;
+}
+
+/* Quick Actions */
+.quick-actions {
+    margin: 25px 0;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.action-btn {
+    background: white;
+    border: 2px solid #e0e7ed;
+    border-radius: 16px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:active {
+    background-color: #f8fafd;
+    border-color: #2ecc71;
+}
+
+.action-icon {
+    font-size: 2rem;
+}
+
+/* Activity List */
+.recent-activity {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.activity-amount {
+    font-weight: bold;
+    color: #27ae60;
+    font-size: 1.1rem;
+}
+
+/* Quick Amount Buttons for Add Earning */
+.quick-amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.amount-btn {
+    background: white;
+    border: 2px solid #e0e7ed;
+    border-radius: 30px;
+    padding: 12px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.amount-btn:active {
+    background-color: #2ecc71;
+    color: white;
+    border-color: #2ecc71;
+}
+
+/* Savings Preview */
+.savings-preview {
+    background: #e8f5e9;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border-left: 4px solid #2ecc71;
+}
+
+.saving-amount {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Offline Badge */
+.offline-badge, .offline-queue {
+    background-color: #f39c12;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+/* PWA Install Prompt */
+.a2hs-prompt {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 2000;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.a2hs-prompt p {
+    flex: 1;
+    font-weight: 500;
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* Auth Tabs */
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: #ecf0f1;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: #2ecc71;
+    color: white;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #2ecc71;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    color: #7f8c8d;
+}
+
+/* M-PESA Note */
+.mpesa-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-top: 10px;
+}
+
+/* Main Content Area */
+.main-content {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date-badge {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.sacco-name {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Summary Cards for Earnings Page */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.summary-card {
+    background: white;
+    padding: 15px 10px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.summary-card span {
+    display: block;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.summary-card strong {
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* List Section */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.list-header select {
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #e0e7ed;
+    background: white;
+}
+
+/* Loan Cards */
+.loan-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.loan-card {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.loan-card.outstanding {
+    border-left: 4px solid #e74c3c;
+}
+
+.loan-card.limit {
+    border-left: 4px solid #2ecc71;
+}
+
+.loan-card span {
+    display: block;
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.loan-card strong {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.loan-card small {
+    font-size: 0.75rem;
+    color: #95a5a6;
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Badges */
+.badge {
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge.success {
+    background: #e8f5e9;
+    color: #27ae60;
+}
+
+/* Loading States */
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: #95a5a6;
+}
+
+/* Error States */
+.error-message {
+    background: #fee;
+    color: #e74c3c;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    text-align: center;
+}
